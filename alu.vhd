@@ -1,22 +1,22 @@
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.numeric_std.ALL;
--- use package
-USE work.procmem_definitions.ALL;
+
 ENTITY alu IS
 PORT (
-a, b : IN STD_ULOGIC_VECTOR(width-1 DOWNTO 0);
+a, b : IN STD_ULOGIC_VECTOR(32-1 DOWNTO 0);
 opcode : IN STD_ULOGIC_VECTOR(1 DOWNTO 0);
-result : OUT STD_ULOGIC_VECTOR(width-1 DOWNTO 0);
+result : OUT STD_ULOGIC_VECTOR(32-1 DOWNTO 0);
 zero : OUT STD_ULOGIC);
 END alu;
+
 ARCHITECTURE behave OF alu IS
 BEGIN
 PROCESS(a, b, opcode)
 -- declaration of variables
-VARIABLE a_uns : UNSIGNED(width-1 DOWNTO 0);
-VARIABLE b_uns : UNSIGNED(width-1 DOWNTO 0);
-VARIABLE r_uns : UNSIGNED(width-1 DOWNTO 0);
+VARIABLE a_uns : UNSIGNED(32-1 DOWNTO 0);
+VARIABLE b_uns : UNSIGNED(32-1 DOWNTO 0);
+VARIABLE r_uns : UNSIGNED(32-1 DOWNTO 0);
 VARIABLE z_uns : UNSIGNED(0 DOWNTO 0);
 BEGIN
 -- initialize values
